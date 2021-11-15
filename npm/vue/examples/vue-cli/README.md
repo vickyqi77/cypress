@@ -53,7 +53,7 @@ Since Vue CLI uses webpack under the hood to build your app, it can export a web
 Ask Vue CLI to return this webpack config using the `@vue/cli-service/webpack.config` import.
 
 ```js
-const { devServer, defineDevServerConfig } = require('@cypress/webpack-dev-server')
+const { devServer }  = require('@cypress/webpack-dev-server')
 const webpackConfig = require('@vue/cli-service/webpack.config')
 
 module.exports = defineConfig({

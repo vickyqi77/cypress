@@ -5,7 +5,7 @@ Use the plugin:
 ```js
 // cypress/cypress.config.js
 const { defineConfig } = require('cypress')
-const { devServer, defineDevServerConfig } = require('@cypress/react/plugins/craco')
+const { devServer }  = require('@cypress/react/plugins/craco')
 
 // import your craco.config.js
 const cracoConfig = require('./craco.config.js')
