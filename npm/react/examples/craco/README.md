@@ -13,7 +13,7 @@ const cracoConfig = require('./craco.config.js')
 module.exports = defineConfig({
   component: {
     devServer,
-    devServerConfig: defineDevServerConfig({ cracoConfig }),
+    devServerConfig: cracoConfig,
   },
 })
 ```

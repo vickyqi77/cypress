@@ -59,7 +59,7 @@ const webpackConfig = require('@vue/cli-service/webpack.config')
 module.exports = defineConfig({
   component: {
     devServer,
-    devServerConfig: defineDevServerConfig({ modifiedWebpackConfig }),
+    devServerConfig: modifiedWebpackConfig,
     setupNodeEvents (on, config) {
       require('@cypress/code-coverage/task')(on, config)
 
