@@ -29,7 +29,7 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   component: {
-    specPattern: '**/*.test.{js,ts,jsx,tsx}',
+    specPattern: '**/*.cy.{js,jsx,ts,tsx}',
     componentFolder: 'src',
   }
 })
@@ -46,7 +46,7 @@ const { devServer } = require("@cypress/react/plugins/react-scripts")
 module.exports = defineConfig({
   component: {
     devServer,
-    specPattern: '**/*.test.{js,ts,jsx,tsx}',
+    specPattern: '**/*.cy.{js,jsx,ts,tsx}',
     componentFolder: 'src'
   }
 })

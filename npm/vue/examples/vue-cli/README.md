@@ -40,7 +40,7 @@ module.exports = defineConfig({
     // located in this directory and its sub-directory
     componentFolder: 'src'
     // Tell Cypress how to recognize spec files
-    specPattern: '**/*spec.js',
+    specPattern: '**/*.cy.{js,jsx,ts,tsx}',
   }
 })
 ```
