@@ -5,11 +5,12 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "yarn test-unit",
-    "test-unit": "mocha --config test/.mocharc.json src/*.spec.* src/**/*.spec.* --exit"
+    "test-unit": "mocha --config test/.mocharc.json src/*.spec.* src/**/*.spec.* --exit",
   },
-  "dependencies": {},
+  "dependencies": {
+    "@cypress/design-system": "0.0.0-development"
+  },
   "devDependencies": {
-    "@cypress/design-system": "0.0.0-development",
     "@cypress/react-tooltip": "0.5.3",
     "@packages/driver": "0.0.0-development",
     "@packages/socket": "0.0.0-development",
@@ -25,7 +26,7 @@
     "mobx": "5.15.4",
     "mobx-react": "6.1.8",
     "mocha": "7.0.1",
-    "nanoid": "3.1.20",
+    "nanoid": "3.1.20", 
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-popper": "2.2.5",

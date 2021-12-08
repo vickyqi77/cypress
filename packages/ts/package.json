@@ -20,5 +20,8 @@
   },
   "files": [
     "register.js"
-  ]
+  ],
+  "exports": {
+    "./register": "./register.js"
+  }
 }
