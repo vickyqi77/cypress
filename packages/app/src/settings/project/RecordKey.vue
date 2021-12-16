@@ -13,18 +13,25 @@
       </i18n-t>
     </template>
     <div
-      v-if="recordKey"
       class="inline-flex justify-start gap-10px"
     >
-      <CodeBox
-        :code="recordKey"
-        :prefix-icon="IconKey"
-        confidential
-      />
-      <CopyButton
-        :text="recordKey"
-        variant="outline"
-      />
+      <template v-if="recordKey">
+        <CodeBox
+          :code="recordKey"
+          :prefix-icon="IconKey"
+          confidential
+        />
+        <CopyButton
+          :text="recordKey"
+          variant="outline"
+        />
+      </template>
+      <Alert
+        v-else
+        status="warning"
+      >
+        {{ t('settingsPage.recordKey.noKeyFoundWarning') }}
+      </Alert>
       <Button
         variant="outline"
         :prefix-icon="IconExport"
@@ -49,6 +56,7 @@ import { gql } from '@urql/core'
 import CopyButton from '@cy/components/CopyButton.vue'
 import CodeBox from './CodeBox.vue'
 import ExternalLink from '@packages/frontend-shared/src/gql-components/ExternalLink.vue'
+import Alert from '../../../../frontend-shared/src/components/Alert.vue'
 
 gql`
 fragment RecordKey on CloudRecordKey {
@@ -58,12 +66,12 @@ fragment RecordKey on CloudRecordKey {
 `
 
 const props = defineProps<{
-  gql: RecordKeyFragment
+  gql?: RecordKeyFragment
 }>()
 
 const openManageKeys = () => { }
 const showRecordKey = ref(false)
 const { t } = useI18n()
 
-const recordKey = computed(() => props.gql.key)
+const recordKey = computed(() => props.gql?.key)
 </script>

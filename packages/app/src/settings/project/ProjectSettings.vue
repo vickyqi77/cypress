@@ -10,8 +10,7 @@
     />
   </template>
   <template v-else>
-    You don't have any record keys. You should make some so you can record
-    on Cypress Cloud.
+    <RecordKey />
   </template>
   <SpecPatterns />
   <Experiments :gql="props.gql.currentProject" />

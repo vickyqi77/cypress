@@ -318,7 +318,8 @@
     "recordKey": {
       "title": "Record Key",
       "description": "The Record Key configured for this project inside of Cypress Cloud. {0}",
-      "manageKeys": "Manage Keys"
+      "manageKeys": "Manage Keys",
+      "noKeyFoundWarning": "You don't have any record keys. You should make some so you can record on Cypress Cloud."
     },
     "project": {
       "title": "Project Settings",
