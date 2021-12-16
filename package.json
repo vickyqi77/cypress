@@ -267,13 +267,13 @@
     "*.{js,jsx,ts,tsx,json,eslintrc,vue}": "eslint --fix"
   },
   "resolutions": {
-    "**/@types/cheerio": "0.22.21",
-    "**/@types/enzyme": "3.10.5",
-    "**/@types/react": "16.9.50",
-    "**/jquery": "3.1.1",
-    "**/pretty-format": "26.4.0",
-    "**/socket.io-parser": "4.0.4",
-    "**/ua-parser-js": "0.7.24",
+    "@types/cheerio": "0.22.21",
+    "@types/enzyme": "3.10.5",
+    "@types/react": "16.9.50",
+    "jquery": "3.1.1",
+    "pretty-format": "26.4.0",
+    "socket.io-parser": "4.0.4",
+    "ua-parser-js": "0.7.24",
     "vue-template-compiler": "2.6.12"
   }
 }
