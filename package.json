@@ -172,6 +172,7 @@
     "http-server": "0.12.3",
     "human-interval": "1.0.0",
     "husky": "7.0.2",
+    "ifdef-loader": "2.3.2",
     "inquirer": "3.3.0",
     "inquirer-confirm": "2.0.3",
     "jest": "24.9.0",
