@@ -1,0 +1,5 @@
+packages:
+  - 'packages/*'
+  - 'npm/*'
+  - 'cli'
+  - 'system-tests'

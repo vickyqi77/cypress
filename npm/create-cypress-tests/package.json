@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Cypress smart installation wizard",
   "private": false,
-  "main": "dist/src/main.js",
+  "main": "main.js",
   "scripts": {
     "build": "yarn prepare-example && tsc -p ./tsconfig.json && node scripts/example copy-to ./dist/initial-template && yarn prepare-copy-templates",
     "build-prod": "yarn build",
@@ -47,7 +47,7 @@
     "bin"
   ],
   "bin": {
-    "create-cypress-tests": "dist/src/index.js"
+    "create-cypress-tests": "index.js"
   },
   "license": "MIT",
   "repository": "https://github.com/cypress-io/cypress.git",
