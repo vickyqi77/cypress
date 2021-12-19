@@ -1,5 +1,5 @@
 import Debug from 'debug'
-import { createServer, ViteDevServer, InlineConfig } from 'vite'
+import type { InlineConfig } from 'vite'
 import { dirname, resolve } from 'path'
 import getPort from 'get-port'
 import { makeCypressPlugin } from './makeCypressPlugin'
@@ -18,10 +18,15 @@ export interface StartDevServerOptions {
    * @optional
    */
   viteConfig?: Omit<InlineConfig, 'base' | 'root'>
+  /**
+   * Path to an index.html file that will serve as the template in
+   * which your components will be rendered.
+   */
+  indexHtml?: string
 }
 
-const resolveServerConfig = async ({ viteConfig, options }: StartDevServerOptions): Promise<InlineConfig> => {
-  const { projectRoot, supportFile } = options.config
+export default async ({ viteConfig, options, indexHtml }: StartDevServerOptions): Promise<InlineConfig> => {
+  const { projectRoot, supportFile, isTextTerminal } = options.config
 
   const requiredOptions: InlineConfig = {
     base: '/__cypress/src/',
@@ -30,7 +35,7 @@ const resolveServerConfig = async ({ viteConfig, options }: StartDevServerOption
 
   const finalConfig: InlineConfig = { ...viteConfig, ...requiredOptions }
 
-  finalConfig.plugins = [...(finalConfig.plugins || []), makeCypressPlugin(projectRoot, supportFile, options.devServerEvents, options.specs)]
+  finalConfig.plugins = [...(finalConfig.plugins || []), makeCypressPlugin(projectRoot, supportFile, options.devServerEvents, options.specs, isTextTerminal, indexHtml)]
 
   // This alias is necessary to avoid a "prefixIdentifiers" issue from slots mounting
   // only cjs compiler-core accepts using prefixIdentifiers in slots which vue test utils use.
@@ -70,19 +75,13 @@ const resolveServerConfig = async ({ viteConfig, options }: StartDevServerOption
     }
   }
 
+  finalConfig.build = {
+    outDir: `${projectRoot}/node_modules/.cypress/vite-dev-server`,
+    sourcemap: true,
+    minify: false,
+  },
+
   debug(`the resolved server config is ${JSON.stringify(finalConfig, null, 2)}`)
 
   return finalConfig
-}
-
-export async function start (devServerOptions: StartDevServerOptions): Promise<ViteDevServer> {
-  if (!devServerOptions.viteConfig) {
-    debug('User did not pass in any Vite dev server configuration')
-    devServerOptions.viteConfig = {}
-  }
-
-  debug('starting vite dev server')
-  const resolvedConfig = await resolveServerConfig(devServerOptions)
-
-  return createServer(resolvedConfig)
 }
