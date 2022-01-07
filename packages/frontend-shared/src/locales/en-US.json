@@ -329,7 +329,9 @@
       "errorNotFound": "Project not found",
       "errorNotFoundButton": "Connect it again",
       "errorNotLoggedIn": "You are not connected to the Cypress Dashboard",
-      "errorNotLoggedInButton": "Log in to Cypress Dashboard"
+      "errorNotLoggedInButton": "Log in to Cypress Dashboard",
+      "errorProjectNotConnected": "Project not connected, please add a projectId",
+      "errorProjectNotConnectedButton": "Select a Dashboard Project to connect to"
     },
     "project": {
       "title": "Project Settings",

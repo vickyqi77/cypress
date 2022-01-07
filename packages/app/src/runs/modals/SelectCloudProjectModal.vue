@@ -205,6 +205,10 @@ mutation SelectCloudProjectModal_SetProjectId( $projectId: String! ) {
               ...RunCard
             }
           }
+          recordKeys {
+            id
+            key
+          }
         }
       }
     }

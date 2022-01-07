@@ -51,6 +51,16 @@
       </div>
     </Alert>
     <Alert
+      v-else-if="!props.gql.currentProject?.projectId"
+      :title="t('settingsPage.recordKey.errorProjectNotConnected')"
+    >
+      <div class="flex justify-end">
+        <Button @click="connectDialog = true">
+          {{ t('settingsPage.recordKey.errorProjectNotConnectedButton') }}
+        </Button>
+      </div>
+    </Alert>
+    <Alert
       v-else-if="cloudProject?.__typename === 'CloudProjectNotFound'"
       :title="t('settingsPage.recordKey.errorNotFound')"
     >
