@@ -371,6 +371,9 @@
         "description": "Scroll behavior when running tests."
       }
     },
+    "codeBox": {
+      "ariaLabel": "{0} visibility toggle"
+    },
     "footer": {
       "text": "You can reconfigure the settings for this project if you're experiencing issues with your Cypress configuration.",
       "button": "Reconfigure Project"

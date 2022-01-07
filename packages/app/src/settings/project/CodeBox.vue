@@ -13,12 +13,12 @@
         v-if="localConfidential"
 
         class="icon-dark-gray-500"
-        :aria-label="`${title} Visibility Toggle`"
+        :aria-label="t('settingsPage.codeBox.ariaLabel', title)"
       />
       <i-cy-eye-closed_x16
         v-else
         class="icon-dark-gray-500"
-        :aria-label="`${title} Visibility Toggle`"
+        :aria-label="t('settingsPage.codeBox.ariaLabel', title)"
       />
     </button>
     <code
@@ -32,6 +32,8 @@
 
 <script lang="ts" setup>
 import { FunctionalComponent, ref, SVGAttributes } from 'vue'
+import { useI18n } from '@cy/i18n'
+const { t } = useI18n()
 
 const props = defineProps<{
   code: string,

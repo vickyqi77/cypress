@@ -39,8 +39,8 @@ import ExperimentRow from './ExperimentRow.vue'
 import SettingsSection from '../SettingsSection.vue'
 import ExternalLink from '@cy/gql-components/ExternalLink.vue'
 import type { ExperimentsFragment } from '../../generated/graphql'
-import { useI18n } from '@cy/i18n'
 import type { CypressResolvedConfig } from './projectSettings'
+import { useI18n } from '@cy/i18n'
 const { t } = useI18n()
 
 gql`
