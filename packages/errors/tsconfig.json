@@ -10,8 +10,6 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": false,
-    "rootDir": "src",
-    "outDir": "dist",
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
