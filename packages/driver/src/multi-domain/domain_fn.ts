@@ -27,11 +27,13 @@ export const handleDomainFn = (cy: $Cy, specBridgeCommunicator: SpecBridgeDomain
     cy.state('nestedIndex', null)
   }
 
-  const reset = () => {
+  const reset = (currentTest) => {
     cy.reset({})
 
     const runnable = {
-      ctx: {},
+      ctx: {
+        currentTest,
+      },
       clearTimeout () {},
       resetTimeout () {},
       timeout () {},
@@ -43,8 +45,8 @@ export const handleDomainFn = (cy: $Cy, specBridgeCommunicator: SpecBridgeDomain
     cy.state('ctx', runnable.ctx)
   }
 
-  specBridgeCommunicator.on('run:domain:fn', async ({ data, fn, isDoneFnAvailable = false }: { data: any[], fn: string, isDoneFnAvailable: boolean }) => {
-    reset()
+  specBridgeCommunicator.on('run:domain:fn', async ({ data, fn, isDoneFnAvailable = false, currentTest = null }: { data: any[], fn: string, isDoneFnAvailable: boolean, currentTest }) => {
+    reset(currentTest)
 
     let fnWrapper = `(${fn})`
 
