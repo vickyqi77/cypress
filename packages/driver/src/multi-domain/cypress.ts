@@ -108,7 +108,7 @@ const onBeforeAppWindowLoad = (Cypress: Cypress.Cypress, cy: $Cy) => (autWindow:
       // TODO: implement these commented out bits
       // stability.isStable(false, 'beforeunload')
 
-      // Cookies.setInitial()
+      cy.Cookies.setInitial()
 
       // timers.reset()
 
